@@ -24,16 +24,16 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 	private final RoomRepository roomRepository;
 	private final GuestRepository guestRepository;
 	private final ReservationRepository reservationRepository;
-	
-	@Autowired
-	private ReservationService reservationService;
+	private final ReservationService reservationService;
 	
 	public AppStartupEvent(RoomRepository roomRepository,
 			GuestRepository guestRepository,
-			ReservationRepository reservationRepository) {
+			ReservationRepository reservationRepository,
+			ReservationService reservationService) {
 		this.roomRepository = roomRepository;
 		this.guestRepository = guestRepository;
 		this.reservationRepository = reservationRepository;
+		this.reservationService = reservationService;
 	}
 	
 	@Override

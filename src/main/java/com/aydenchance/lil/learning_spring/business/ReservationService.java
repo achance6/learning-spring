@@ -19,14 +19,19 @@ import com.aydenchance.lil.learning_spring.data.RoomRepository;
 
 @Service
 public class ReservationService {
-	@Autowired
-    private RoomRepository roomRepository;
-	@Autowired
-    private GuestRepository guestRepository;
-	@Autowired
-    private ReservationRepository reservationRepository;
+    private final RoomRepository roomRepository;
+    private final GuestRepository guestRepository;
+    private final ReservationRepository reservationRepository;
 
-    public List<RoomReservation> getRoomReservationsForDate(Date date) {
+    @Autowired
+    public ReservationService(RoomRepository roomRepository, GuestRepository guestRepository,
+			ReservationRepository reservationRepository) { 
+		this.roomRepository = roomRepository;
+		this.guestRepository = guestRepository;
+		this.reservationRepository = reservationRepository;
+	}
+
+	public List<RoomReservation> getRoomReservationsForDate(Date date) {
         Iterable<Room> rooms = this.roomRepository.findAll();
         Map<Long, RoomReservation> roomReservationMap = new HashMap();
         rooms.forEach(room -> {
