@@ -28,10 +28,10 @@ public class Guest {
 	private String state;
 	@Column(name="PHONE_NUMBER")
 	private String phoneNumber;
-	public long getId() {
+	public long getGuestId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setGuestId(long id) {
 		this.id = id;
 	}
 	public String getFirstName() {

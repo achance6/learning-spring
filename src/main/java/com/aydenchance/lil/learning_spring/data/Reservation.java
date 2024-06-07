@@ -23,10 +23,10 @@ public class Reservation {
 	private Date reservationDate;
 	
 	
-	public Long getId() {
+	public Long getReservationId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setReservationId(Long id) {
 		this.id = id;
 	}
 	public Long getRoomId() {
