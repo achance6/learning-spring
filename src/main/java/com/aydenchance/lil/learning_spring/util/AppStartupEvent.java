@@ -1,6 +1,6 @@
 package com.aydenchance.lil.learning_spring.util;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import org.h2.util.DateTimeUtils;
@@ -25,15 +25,18 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 	private final GuestRepository guestRepository;
 	private final ReservationRepository reservationRepository;
 	private final ReservationService reservationService;
+	private final DateUtils dateUtils;
 	
 	public AppStartupEvent(RoomRepository roomRepository,
 			GuestRepository guestRepository,
 			ReservationRepository reservationRepository,
-			ReservationService reservationService) {
+			ReservationService reservationService,
+			DateUtils dateUtils) {
 		this.roomRepository = roomRepository;
 		this.guestRepository = guestRepository;
 		this.reservationRepository = reservationRepository;
 		this.reservationService = reservationService;
+		this.dateUtils = dateUtils;
 	}
 	
 	@Override
@@ -45,7 +48,7 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 //		Iterable<Reservation> reservations = this.reservationRepository.findAll();
 //		reservations.forEach(System.out::println);
 		
-		Date date = new Date(DateTimeUtils.parseDateValue("20220101", 0, 8));
+		Date date = this.dateUtils.createDateFromDateString("2022-01-01");
 		List<RoomReservation> reservations = this.reservationService.getRoomReservationsForDate(date);
 		reservations.forEach(System.out::println);
 		
