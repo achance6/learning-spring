@@ -1,7 +1,6 @@
 package com.aydenchance.lil.learning_spring.data;
 
 import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +20,8 @@ public class Reservation {
 	@Column(name="GUEST_ID")
 	private Long GuestId;
 	@Column(name="RES_DATE")
-	private Date date;
+	private Date reservationDate;
+	
 	
 	public Long getId() {
 		return id;
@@ -42,14 +42,14 @@ public class Reservation {
 		GuestId = guestId;
 	}
 	public Date getDate() {
-		return date;
+		return reservationDate;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.reservationDate = date;
 	}
 	@Override
 	public String toString() {
-		return "Reservation [id=" + id + ", RoomId=" + RoomId + ", GuestId=" + GuestId + ", date=" + date + "]";
+		return "Reservation [id=" + id + ", RoomId=" + RoomId + ", GuestId=" + GuestId + ", date=" + reservationDate + "]";
 	}
 	
 }

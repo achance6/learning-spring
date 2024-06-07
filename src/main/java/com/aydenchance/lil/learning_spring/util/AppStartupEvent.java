@@ -1,5 +1,7 @@
 package com.aydenchance.lil.learning_spring.util;
 
+import java.sql.Date;
+
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -34,6 +36,7 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 		guests.forEach(System.out::println);
 		Iterable<Reservation> reservations = this.reservationRepository.findAll();
 		reservations.forEach(System.out::println);
+		
 		
 	}
 
